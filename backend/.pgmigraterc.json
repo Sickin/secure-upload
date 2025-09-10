@@ -1,0 +1,18 @@
+{
+  "database-url-var": "DATABASE_URL",
+  "migrations-dir": "migrations",
+  "dir": "migrations",
+  "direction": "up",
+  "count": 0,
+  "create-db-and-schema": true,
+  "migrations-table": "pgmigrations",
+  "schema": "public",
+  "check-order": true,
+  "dry-run": false,
+  "no-lock": false,
+  "fake": false,
+  "single-transaction": true,
+  "lock": true,
+  "timestamp": true,
+  "json": false
+}

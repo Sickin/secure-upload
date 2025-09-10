@@ -1,0 +1,17 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(npx create-react-app:*)",
+      "Bash(npm init:*)",
+      "Bash(npm install:*)",
+      "Bash(npx tailwindcss init:*)",
+      "Bash(npm run build:*)",
+      "Bash(npm start)",
+      "Bash(npm uninstall:*)",
+      "Bash(taskkill:*)",
+      "Bash(npm run migrate:create:*)"
+    ],
+    "deny": [],
+    "ask": []
+  }
+}
