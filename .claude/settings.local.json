@@ -1,15 +1,9 @@
 {
   "permissions": {
     "allow": [
-      "Bash(npx create-react-app:*)",
-      "Bash(npm init:*)",
-      "Bash(npm install:*)",
-      "Bash(npx tailwindcss init:*)",
-      "Bash(npm run build:*)",
-      "Bash(npm start)",
-      "Bash(npm uninstall:*)",
-      "Bash(taskkill:*)",
-      "Bash(npm run migrate:create:*)"
+      "Bash(DATABASE_URL=\"postgresql://postgres:eaVYYArVKhETuTR3Y7bE@localhost:5432/secure_upload_dev\" npx node-pg-migrate up --verbose)",
+      "Bash(PGPASSWORD=eaVYYArVKhETuTR3Y7bE psql -h localhost -p 5432 -U postgres -d secure_upload_dev -c \"SELECT email, first_name, last_name, role FROM users;\")",
+      "Bash(PGPASSWORD=eaVYYArVKhETuTR3Y7bE psql -h localhost -p 5432 -U postgres -d secure_upload_dev -c \"SELECT name, category FROM document_types ORDER BY category, name;\")"
     ],
     "deny": [],
     "ask": []

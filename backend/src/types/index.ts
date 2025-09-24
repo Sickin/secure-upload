@@ -48,6 +48,66 @@ export enum FieldType {
   TEXTAREA = 'textarea'
 }
 
+export enum DocumentDataType {
+  // Personal Identification
+  DRIVERS_LICENSE = 'drivers_license',
+  PASSPORT = 'passport',
+  SSN_CARD = 'ssn_card',
+  BIRTH_CERTIFICATE = 'birth_certificate',
+  STATE_ID = 'state_id',
+  
+  // Financial Documents
+  TAX_RETURN = 'tax_return',
+  W2 = 'w2',
+  PAYSTUB = 'paystub',
+  BANK_STATEMENT = 'bank_statement',
+  CREDIT_REPORT = 'credit_report',
+  
+  // Employment Documents
+  EMPLOYMENT_VERIFICATION = 'employment_verification',
+  RESUME = 'resume',
+  REFERENCE_LETTER = 'reference_letter',
+  BACKGROUND_CHECK = 'background_check',
+  
+  // Medical/Health Records
+  MEDICAL_RECORD = 'medical_record',
+  VACCINATION_RECORD = 'vaccination_record',
+  INSURANCE_CARD = 'insurance_card',
+  PRESCRIPTION = 'prescription',
+  
+  // Education Documents
+  DIPLOMA = 'diploma',
+  TRANSCRIPT = 'transcript',
+  CERTIFICATE = 'certificate',
+  
+  // Legal Documents
+  CONTRACT = 'contract',
+  COURT_DOCUMENT = 'court_document',
+  POWER_OF_ATTORNEY = 'power_of_attorney',
+  WILL = 'will',
+  
+  // Property/Housing
+  LEASE_AGREEMENT = 'lease_agreement',
+  MORTGAGE_DOCUMENT = 'mortgage_document',
+  PROPERTY_DEED = 'property_deed',
+  UTILITY_BILL = 'utility_bill',
+  
+  // Immigration Documents
+  VISA = 'visa',
+  GREEN_CARD = 'green_card',
+  WORK_PERMIT = 'work_permit',
+  I9_FORM = 'i9_form',
+  
+  // Insurance Documents
+  AUTO_INSURANCE = 'auto_insurance',
+  HEALTH_INSURANCE = 'health_insurance',
+  LIABILITY_INSURANCE = 'liability_insurance',
+  
+  // Other
+  OTHER = 'other',
+  GENERAL_DOCUMENT = 'general_document'
+}
+
 export interface UploadLink {
   id: string;
   jobNumber: string;

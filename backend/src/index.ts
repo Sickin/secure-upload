@@ -7,6 +7,7 @@ import rateLimit from 'express-rate-limit';
 
 import { errorHandler } from '@/middleware/errorHandler';
 import { logger } from '@/config/logger';
+import apiRoutes from '@/routes';
 
 dotenv.config();
 
@@ -44,8 +45,8 @@ app.get('/api/health', (req, res) => {
   });
 });
 
-// API routes will be added here
-// app.use('/api/v1', routes);
+// API routes
+app.use('/api/v1', apiRoutes);
 
 // Error handling middleware (must be last)
 app.use(errorHandler);
