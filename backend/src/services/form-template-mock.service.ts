@@ -31,7 +31,11 @@ let mockTemplates: FormTemplateWithFields[] = [
         is_required: true,
         validation_rules: undefined,
         display_order: 1,
-        created_at: new Date('2024-01-15')
+        created_at: new Date('2024-01-15'),
+        permissions: {
+          recruiter: 'visible',
+          manager: 'visible'
+        }
       },
       {
         id: '2',
@@ -43,7 +47,11 @@ let mockTemplates: FormTemplateWithFields[] = [
         is_required: true,
         validation_rules: undefined,
         display_order: 2,
-        created_at: new Date('2024-01-15')
+        created_at: new Date('2024-01-15'),
+        permissions: {
+          recruiter: 'submitted_only',
+          manager: 'visible'
+        }
       },
       {
         id: '3',
@@ -56,7 +64,11 @@ let mockTemplates: FormTemplateWithFields[] = [
         validation_rules: undefined,
         display_order: 3,
         created_at: new Date('2024-01-15'),
-        document_data_type: DocumentDataType.DRIVERS_LICENSE
+        document_data_type: DocumentDataType.DRIVERS_LICENSE,
+        permissions: {
+          recruiter: 'submitted_only',
+          manager: 'visible'
+        }
       }
     ]
   },
@@ -79,7 +91,11 @@ let mockTemplates: FormTemplateWithFields[] = [
         is_required: true,
         validation_rules: undefined,
         display_order: 1,
-        created_at: new Date('2024-01-20')
+        created_at: new Date('2024-01-20'),
+        permissions: {
+          recruiter: 'visible',
+          manager: 'visible'
+        }
       },
       {
         id: '5',
@@ -92,7 +108,11 @@ let mockTemplates: FormTemplateWithFields[] = [
         validation_rules: undefined,
         display_order: 2,
         created_at: new Date('2024-01-20'),
-        document_data_type: DocumentDataType.TAX_RETURN
+        document_data_type: DocumentDataType.TAX_RETURN,
+        permissions: {
+          recruiter: 'hidden',
+          manager: 'visible'
+        }
       }
     ]
   }
@@ -166,7 +186,11 @@ export class FormTemplateMockService {
           validation_rules: fieldData.validation_rules,
           display_order: fieldData.display_order,
           created_at: now,
-          document_data_type: fieldData.document_data_type
+          document_data_type: fieldData.document_data_type,
+          permissions: fieldData.permissions || {
+            recruiter: 'visible',
+            manager: 'visible'
+          }
         }))
       };
 
@@ -246,7 +270,11 @@ export class FormTemplateMockService {
         validation_rules: fieldData.validation_rules,
         display_order: fieldData.display_order,
         created_at: new Date(),
-        document_data_type: fieldData.document_data_type
+        document_data_type: fieldData.document_data_type,
+        permissions: fieldData.permissions || {
+          recruiter: 'visible',
+          manager: 'visible'
+        }
       };
 
       const templateIndex = mockTemplates.findIndex(t => t.id === templateId);
@@ -308,6 +336,9 @@ export class FormTemplateMockService {
       }
       if (updateData.document_data_type !== undefined) {
         targetField.document_data_type = updateData.document_data_type;
+      }
+      if (updateData.permissions !== undefined) {
+        targetField.permissions = updateData.permissions;
       }
 
       logger.info(`Mock: Updated form field: ${fieldId} by user: ${userId}`);

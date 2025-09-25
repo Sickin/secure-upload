@@ -1,7 +1,7 @@
 import { Router, Request } from 'express';
-import { authenticate } from '../middleware/auth';
 import formTemplateRoutes from './form-templates';
 import { uploadLinkRoutes } from './upload-links';
+import uploadSessionRoutes from './upload-sessions';
 
 interface AuthenticatedRequest extends Request {
   user?: {
@@ -20,6 +20,7 @@ const router = Router();
 // Mount route modules
 router.use('/form-templates', formTemplateRoutes);
 router.use('/upload-links', uploadLinkRoutes);
+router.use('/upload-sessions', uploadSessionRoutes);
 
 // Health check endpoint for authenticated routes
 router.get('/health', (req, res) => {

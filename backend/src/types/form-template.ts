@@ -8,6 +8,8 @@ export interface FormTemplate {
   updated_at: Date;
 }
 
+import { DocumentDataType } from './';
+
 export interface FormField {
   id: string;
   template_id: string;
@@ -19,6 +21,8 @@ export interface FormField {
   validation_rules?: ValidationRules;
   display_order: number;
   created_at: Date;
+  document_data_type?: DocumentDataType;
+  permissions?: FieldPermissions;
 }
 
 export type FormFieldType = 
@@ -38,6 +42,13 @@ export interface FormFieldOptions {
   options?: SelectOption[];
   placeholder?: string;
   helpText?: string;
+}
+
+export type FieldVisibility = 'visible' | 'submitted_only' | 'hidden';
+
+export interface FieldPermissions {
+  recruiter: FieldVisibility;
+  manager: FieldVisibility;
 }
 
 export interface SelectOption {
@@ -72,6 +83,8 @@ export interface CreateFormFieldRequest {
   is_required: boolean;
   validation_rules?: ValidationRules;
   display_order: number;
+  document_data_type?: DocumentDataType;
+  permissions?: FieldPermissions;
 }
 
 export interface UpdateFormTemplateRequest {
@@ -88,6 +101,8 @@ export interface UpdateFormFieldRequest {
   is_required?: boolean;
   validation_rules?: ValidationRules;
   display_order?: number;
+  document_data_type?: DocumentDataType;
+  permissions?: FieldPermissions;
 }
 
 export interface FormTemplateWithFields extends FormTemplate {
